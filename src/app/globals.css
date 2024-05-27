@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  scrollbar-color: white;
+}
+::-webkit-scrollbar-thumb {
+  background: #90ffaf;
+  border-radius: 10px;
+}
+
+@layer components {
+  .btn {
+    @apply flex gap-2 items-center justify-center py-4 px-8 bg-primary-200 hover:bg-brand rounded-full text-center text-brand hover:text-white tracking-wide transition text-lg font-medium;
+  }
+
+  .btn-sm {
+    @apply py-4 px-6 text-sm;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-brand;
+  }
+}
+
+@layer utilities {
+  .inner-width {
+    @apply px-4 md:px-6 xl:px-20 max-w-[90rem] mx-auto;
+  }
+
+  .vertical-padding {
+    @apply py-10 lg:py-[4.5rem];
+  }
+}
