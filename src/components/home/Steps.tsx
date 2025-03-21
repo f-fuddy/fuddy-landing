@@ -30,19 +30,18 @@ const steps = [
 
 function Steps() {
   const [activeStep, setActiveStep] = useState(steps[0]);
-  const [isGeneratingRecipesDisabled, setIsGeneratingRecipesDisabled] =
-    useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
 
-  const handleMouseEnter = () => {
-    setIsGeneratingRecipesDisabled(true);
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    setIsGeneratingRecipesDisabled(false);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
-    <section className="vertical-padding  bg-primary-100" id="pasos">
+    <section className="vertical-padding bg-primary-100" id="pasos">
       <div className="inner-width mt-8 space-y-4 lg:space-y-10">
         {/* title */}
         <div className="space-y-4 lg:space-y-6 text-center max-w-prose mx-auto [text-wrap:balance]">
@@ -82,30 +81,15 @@ function Steps() {
                 );
               })}
             </ul>
-            {/* <a
+
+            <button
               className="btn bg-white text-brand inline-flex mt-4 lg:mt-10"
-              href={`${APP_URL}/dashboard`}
+              onClick={handleOpenModal} // Abrir modal al hacer clic
             >
               Comenzar
-            </a> */}
-            <a
-              className={`btn bg-white text-brand inline-flex mt-4 lg:mt-10  ${
-                isGeneratingRecipesDisabled ? "disabled" : ""
-              }`}
-              // href={`${APP_URL}/dashboard`}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onClick={(e) => {
-                if (isGeneratingRecipesDisabled) {
-                  e.preventDefault();
-                }
-              }}
-            >
-              {isGeneratingRecipesDisabled ? "Lento pero seguro" : "Comenzar"}
-            </a>
+            </button>
           </div>
 
-          {/* imagen + text */}
           <div className="lg:flex lg:items-start lg:col-span-5">
             <Image
               className="h-72 lg:h-auto w-56 mx-auto object-cover object-top"
@@ -120,6 +104,46 @@ function Steps() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={handleCloseModal}
+        >
+          <div
+            className="bg-white p-8 rounded-lg max-w-md w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-xl font-semibold mb-4">Elige una opción</h3>
+            <div className="space-y-4">
+              <a
+                href="https://app.fuddy.click/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn bg-brand hover:bg-white hover:text-brand hover:border-brand border text-white w-full block text-center"
+              >
+                App Web
+              </a>
+              <button
+                className="btn bg-brand cursor-not-allowed text-white w-full relative group"
+                disabled
+              >
+                <span className="group-hover:hidden">App Móvil</span>
+                <span className="hidden group-hover:inline">
+                  Lento pero seguro
+                </span>
+              </button>
+            </div>
+            <button
+              className="flex gap-2 items-center justify-center py-2 px-4 hover:bg-brand rounded-full text-center hover:text-white tracking-wide transition font-medium bg-white text-black hover:border-brand border mt-4 text-sm"
+              onClick={handleCloseModal}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

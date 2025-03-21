@@ -14,7 +14,11 @@ function LegalModal() {
 
   return (
     <>
-      <button onClick={onOpen} type="button">
+      <button
+        onClick={onOpen}
+        className=" text-black hover:text-[#6DB481]"
+        type="button"
+      >
         Términos y condiciones
       </button>
 
@@ -31,7 +35,7 @@ function LegalModal() {
 
           <ModalBody>
             <p className="font-medium">Política de Privacidad de Fuddy</p>
-            <p>Fecha de última actualización: [16-09-2023]</p>
+            <p>Fecha de última actualización: [16-09-2025]</p>
             <p>1. Introducción</p>
             <p>
               Bienvenido a<strong className="text-brand"> Fuddy. </strong>

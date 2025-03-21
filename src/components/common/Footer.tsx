@@ -35,7 +35,9 @@ function Footer() {
           <ul className="space-y-2">
             {sections.map((section) => (
               <li key={section.name}>
-                <a href={section.href}>{section.name}</a>
+                <a className="hover:text-[#6DB481]" href={section.href}>
+                  {section.name}
+                </a>
               </li>
             ))}
           </ul>
@@ -47,7 +49,7 @@ function Footer() {
         </div>
       </div>
 
-      <p className="mt-4 lg:mt-12 lg:text-center">
+      <p className="mt-4 lg:mt-12 lg:text-center ">
         Todos los derechos reservados {new Date().getFullYear()} ©Fuddy
       </p>
     </footer>
