@@ -13,7 +13,6 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import { sections } from "@/constants";
-import { Accessbeta } from "@/components";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

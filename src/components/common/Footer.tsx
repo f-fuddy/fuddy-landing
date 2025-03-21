@@ -48,7 +48,7 @@ function Footer() {
       </div>
 
       <p className="mt-4 lg:mt-12 lg:text-center">
-        Todos los derechos reservados 2023 © Fuddy
+        Todos los derechos reservados {new Date().getFullYear()} ©Fuddy
       </p>
     </footer>
   );

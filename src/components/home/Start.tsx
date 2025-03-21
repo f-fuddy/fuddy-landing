@@ -1,20 +1,6 @@
-"use client";
 import Image from "next/image";
-import { APP_URL } from "@/constants";
-import { useState } from "react";
 
 function Start() {
-  const [isGeneratingRecipesDisabled, setIsGeneratingRecipesDisabled] =
-    useState(true);
-
-  const handleMouseEnter = () => {
-    setIsGeneratingRecipesDisabled(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsGeneratingRecipesDisabled(false);
-  };
-
   return (
     <section className="inner-width lg:mt-[-5rem] md:mt-[1rem]  vertical-padding text-center lg:text-left grid lg:grid-cols-2 lg:gap-x-6 items-center">
       <div className="grid gap-4 lg:gap-6 lg:place-items-start">
